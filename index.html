@@ -1,8 +1,9 @@
 <head>
   <title>Planet Hülse</title>
+  <script src="func.js" type="text/javascript"></script>
   <style>
     body {
-      background-image: url(img/bg.JPG);
+      background-image: url(img/bg.jpg);
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -11,12 +12,12 @@
     .button {
       border: none;
       color: white;
-      padding: 15px 32px;
+      padding: 15pt 25pt;
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
+      font-size: 14pt;
+      margin: 4pt 2pt;
       cursor: pointer;
     }
 
@@ -34,26 +35,29 @@
       color: white;
       font-size: large;
     }
+
+    .textq {
+      font-size: 35pt;
+    }
   </style>
 </head>
 
 <body>
   <center>
-    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; font-size: 40px;">Hülsenfrüchte - Quiz</h1>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; font-size: 40pt;">Hülsenfrüchte - Quiz</h1>
     <div style="width: 60%;">
-      <p class="text">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-        labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-        Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
-        ipsum dolor sit amet.
+      <p class="text textq">
+        Wie werden Pflanzen bezeichnet, die Hülsenfrüchte tragen?
       </p>
     </div>
     <div>
-      <button class="button buttona">Option 1</button>
-      <button class="button buttona">Option 2</button>
-      <button class="button buttona">Option 3</button>
+      <button class="button buttona" onclick="onButton(1, 0)">Bohnen</button>
+      <button class="button buttona" onclick="onButton(2, 0)">Hülsenfrüchtler</button>
+      <button class="button buttona" onclick="onButton(3, 0)">Fruchthülser</button>
+      <button class="button buttona" onclick="onButton(4, 0)">Hülsenpflanzen</button>
     </div>
   </center>
+  <div style="position: absolute; text-align: end; bottom: 0; right: 0;">
+    <p class="text" style="font-size: 8pt;">© by David Adam Kess - edited</p>
+  </div>
 </body>
