@@ -23,6 +23,7 @@ const questions = [
     "Was kann man mit Hülsenfrüchten in der Medizin machen?",
     "Wie viel Kilogramm Erbsen werden in Deutschland jährlich gegessen?",
     "Welche Temperatur ist die beste für Linsen zum Wachsen?",
+    "Was ist der beste Boden für das Wachstum von Hülsenfrüchten?",
     "Wie heißen die weißen Knöllchenbakterien der Hülsenfrüchtler?",
     "Seit wie vielen Jahren werden Hülsenfrüchte kultiviert?"
 ];
@@ -134,6 +135,7 @@ const answers4 = [
     "Wasserstoff",
     "Ein Fehler bei Benennung",
     "Februar - Juni",
+    "5 Meter",
     "Füllung für Feldbetten",
     "297500 Tonnen",
     "20°C",
@@ -144,15 +146,28 @@ const answers4 = [
 //                                                   | stimmt nicht
 var correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 1, 4, 1, 1, 1, 1];
 
-var curr_q = Math.floor(Math.random * 27);
+curr_q = getRanInt(27);
 
 function onButton(index) {
-    var nc = Math.floor(Math.random * 27);
-    if(nc == curr_q) curr_q = Math.floor(Math.random * 27);
+    /*for(let i=0; i<27; i++) {
+        console.log(questions[i]);
+        console.log(answers1[i]);
+        console.log(answers2[i]);
+        console.log(answers3[i]);
+        console.log(answers4[i]);
+    }*/
+    nc = getRanInt(27);
+    console.log(nc);
+    if(nc == curr_q) curr_q = getRanInt(27);
     else curr_q = nc;
+    console.log(curr_q);
     document.getElementById("tq").innerHTML = questions[curr_q];
     document.getElementById("ba1").innerHTML = answers1[curr_q];
     document.getElementById("ba2").innerHTML = answers2[curr_q];
     document.getElementById("ba3").innerHTML = answers3[curr_q];
     document.getElementById("ba4").innerHTML = answers4[curr_q];
+}
+
+function getRanInt(max) {
+    return Math.floor(Math.random() * max);
 }
