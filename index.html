@@ -47,7 +47,7 @@
         font-size: 60pt;
         color: red;
         position: absolute;
-        top: 40%;
+        top: 30%;
         left: 50%;
         transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
@@ -68,10 +68,13 @@
         cursor: pointer;
       }
 
-      .buttonr {
+      .center {
+        margin: 0;
         position: absolute;
-        bottom: 20%;
-        left: 42.5%;
+        top: 65%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
@@ -83,14 +86,16 @@
           Wie werden Pflanzen bezeichnet, die Hülsenfrüchte tragen?
         </p>
       <div>
-        <button class="button buttona" onclick="onButton(1)" id="ba1">Bohnen</button>
-        <button class="button buttona" onclick="onButton(2)" id="ba2">Hülsenfrüchtler</button>
-        <button class="button buttona" onclick="onButton(3)" id="ba3">Fruchthülser</button>
-        <button class="button buttona" onclick="onButton(4)" id="ba4">Hülsenpflanzen</button>
+        <button class="button buttona" onclick="onButtonQ(1)" id="ba1">Bohnen</button>
+        <button class="button buttona" onclick="onButtonQ(2)" id="ba2">Hülsenfrüchtler</button>
+        <button class="button buttona" onclick="onButtonQ(3)" id="ba3">Fruchthülser</button>
+        <button class="button buttona" onclick="onButtonQ(4)" id="ba4">Hülsenpflanzen</button>
       </div>
       <div id="overlay">
         <p class="text" id="result">Berechnet...</p>
-        <button class="button buttona buttonr">Nächste Frage</button>
+        <div class="center">
+          <button class="button buttona" onclick="onButtonR()">Nächste Frage</button>
+        </div>
       </div>
     </center>
     <div style="position: absolute; text-align: end; bottom: 0; right: 0;">

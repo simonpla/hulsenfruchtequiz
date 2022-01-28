@@ -50,7 +50,7 @@ const answers1 = [
     "Ende Juni - November",
     "3 Meter",
     "helfen bei der Verdauung",
-    "94 Tonnen",
+    "9400 Tonnen",
     "4°C",
     "Humusreiche Böden",
     "Rhizobien",
@@ -148,7 +148,7 @@ var correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 
 
 curr_q = 0;
 
-function onButton(index) {
+function onButtonQ(index) {
     document.getElementById("overlay").style.display = "block";
     console.log(curr_q);
     if(index == correct_a[curr_q]) {
@@ -159,10 +159,8 @@ function onButton(index) {
         document.getElementById("result").innerHTML = "Leider Falsch.";
     }
     nc = getRanInt(27);
-    console.log(nc);
     if(nc == curr_q) curr_q = getRanInt(27);
     else curr_q = nc;
-    console.log(curr_q);
     document.getElementById("tq").innerHTML = questions[curr_q];
     document.getElementById("ba1").innerHTML = answers1[curr_q];
     document.getElementById("ba2").innerHTML = answers2[curr_q];
@@ -172,4 +170,8 @@ function onButton(index) {
 
 function getRanInt(max) {
     return Math.floor(Math.random() * max);
+}
+
+function onButtonR() {
+    document.getElementById("overlay").style.display = "none";
 }
