@@ -150,7 +150,6 @@ curr_q = 0;
 
 function onButtonQ(index) {
     document.getElementById("overlay").style.display = "block";
-    console.log(curr_q);
     if(index == correct_a[curr_q]) {
         document.getElementById("result").style.color = "green";
         document.getElementById("result").innerHTML = "Richtig!";
