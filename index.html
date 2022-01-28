@@ -12,6 +12,7 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        text-align: center;
       }
   
       .button {
@@ -82,24 +83,22 @@
   </head>
 
   <body>
-    <center>
-      <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; font-size: 40pt;">Hülsenfrüchte - Quiz</h1>
-        <p class="text textq" id="tq">
-          Wie werden Pflanzen bezeichnet, die Hülsenfrüchte tragen?
-        </p>
-      <div>
-        <button class="button buttona" onclick="onButtonQ(1)" id="ba1">Bohnen</button>
-        <button class="button buttona" onclick="onButtonQ(2)" id="ba2">Hülsenfrüchtler</button>
-        <button class="button buttona" onclick="onButtonQ(3)" id="ba3">Fruchthülser</button>
-        <button class="button buttona" onclick="onButtonQ(4)" id="ba4">Hülsenpflanzen</button>
+    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; font-size: 40pt;">Hülsenfrüchte - Quiz</h1>
+      <p class="text textq" id="tq">
+        Wie werden Pflanzen bezeichnet, die Hülsenfrüchte tragen?
+      </p>
+    <div>
+      <button class="button buttona" onclick="onButtonQ(1)" id="ba1">Bohnen</button>
+      <button class="button buttona" onclick="onButtonQ(2)" id="ba2">Hülsenfrüchtler</button>
+      <button class="button buttona" onclick="onButtonQ(3)" id="ba3">Fruchthülser</button>
+      <button class="button buttona" onclick="onButtonQ(4)" id="ba4">Hülsenpflanzen</button>
       </div>
-      <div id="overlay">
+        <div id="overlay">
         <p class="text" id="result">Berechnet...</p>
         <div class="center">
-          <button class="button buttona" onclick="onButtonR()">Nächste Frage</button>
-        </div>
+        <button class="button buttona" onclick="onButtonR()">Nächste Frage</button>
       </div>
-    </center>
+    </div>
     <div style="position: absolute; text-align: end; bottom: 0; right: 0;">
       <p class="text" style="font-size: 8pt;">© by David Adam Kess - edited</p>
     </div>
