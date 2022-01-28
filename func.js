@@ -146,16 +146,18 @@ const answers4 = [
 //                                                   | stimmt nicht
 var correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 1, 4, 1, 1, 1, 1];
 
-curr_q = getRanInt(27);
+curr_q = 0;
 
 function onButton(index) {
-    /*for(let i=0; i<27; i++) {
-        console.log(questions[i]);
-        console.log(answers1[i]);
-        console.log(answers2[i]);
-        console.log(answers3[i]);
-        console.log(answers4[i]);
-    }*/
+    document.getElementById("overlay").style.display = "block";
+    console.log(curr_q);
+    if(index == correct_a[curr_q]) {
+        document.getElementById("result").style.color = "green";
+        document.getElementById("result").innerHTML = "Richtig!";
+    } else {
+        document.getElementById("result").style.color = "red";
+        document.getElementById("result").innerHTML = "Leider Falsch.";
+    }
     nc = getRanInt(27);
     console.log(nc);
     if(nc == curr_q) curr_q = getRanInt(27);
