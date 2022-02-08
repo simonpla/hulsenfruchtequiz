@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Ein Quiz über Hülsenfrüchte.">
-    <title>Planet Hülse</title>
+    <title>Quiz Hülsenfrüchte</title>
     <script src="func.js" type="text/javascript"></script>
     <style>
       body {
@@ -13,6 +13,12 @@
         background-attachment: fixed;
         background-size: cover;
         text-align: center;
+      }
+
+      h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        font-size: 40pt;
       }
   
       .button {
@@ -79,11 +85,45 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
       }
+
+      #startpage {
+        position: fixed;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: url(img/bg.webp);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      #scoreboard {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: url(img/bg.webp);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        z-index: 2;
+        cursor: pointer;
+      }
     </style>
   </head>
 
   <body>
-    <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; font-size: 40pt;">Hülsenfrüchte - Quiz</h1>
+    <h1>Hülsenfrüchte - Quiz</h1>
       <p class="text textq" id="tq">
         Wie werden Pflanzen bezeichnet, die Hülsenfrüchte tragen?
       </p>
@@ -93,14 +133,26 @@
       <button class="button buttona" onclick="onButtonQ(3)" id="ba3">Fruchthülser</button>
       <button class="button buttona" onclick="onButtonQ(4)" id="ba4">Hülsenpflanzen</button>
       </div>
-        <div id="overlay">
+      <div id="overlay">
         <p class="text" id="result">Berechnet...</p>
         <div class="center">
-        <button class="button buttona" onclick="onButtonR()">Nächste Frage</button>
-      </div>
+        <button class="button buttona" onclick="onButtonR()" id="nq">Nächste Frage</button>
+        </div>
     </div>
     <div style="position: absolute; text-align: end; bottom: 0; right: 0;">
       <p class="text" style="font-size: 8pt;">© by David Adam Kess - edited</p>
+    </div>
+    <div id="startpage">
+      <h1>Willkommen zu dem Quiz über Hülsenfrüchte!</h1>
+      <div style="height: 10pt;"></div>
+      <p class="text" style="font-size: 20pt;">Ein Projekt von dem Ökologie-Kurs Klasse 10 des Georg-Büchner-Gymnasiums</p>
+      <button class="button buttona" onclick="onStart()">Start</button>
+    </div>
+    <div id="scoreboard">
+      <h1>Du hast</h1>
+      <p class="text" style="font-size: 80pt; font-weight: bolder;" id="scounter">1</p>
+      <p class="text" style="font-size: 20pt;" id="sjudgement"></p>
+      <button class="button buttona" onclick="onStart()">Restart</button>
     </div>
   </body>
 </html>

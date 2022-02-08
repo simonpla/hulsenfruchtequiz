@@ -147,15 +147,39 @@ const answers4 = [
 var correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 1, 4, 1, 1, 1, 1];
 
 curr_q = 0;
+score = 0;
+asked_q = 0;
+
+function onStart() {
+    document.getElementById("startpage").style.display = "none";
+    document.getElementById("scoreboard").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+    nc = getRanInt(27);
+    if(nc == curr_q) curr_q = getRanInt(27);
+    else curr_q = nc;
+    document.getElementById("tq").innerHTML = questions[curr_q];
+    document.getElementById("ba1").innerHTML = answers1[curr_q];
+    document.getElementById("ba2").innerHTML = answers2[curr_q];
+    document.getElementById("ba3").innerHTML = answers3[curr_q];
+    document.getElementById("ba4").innerHTML = answers4[curr_q];
+    document.getElementById("scoreboard").style.display = "none";
+    asked_q = 0;
+}
 
 function onButtonQ(index) {
     document.getElementById("overlay").style.display = "block";
     if(index == correct_a[curr_q]) {
         document.getElementById("result").style.color = "green";
         document.getElementById("result").innerHTML = "Richtig!";
+        score++;
+        asked_q++;
     } else {
         document.getElementById("result").style.color = "red";
         document.getElementById("result").innerHTML = "Leider Falsch.";
+        asked_q++;
+    }
+    if(asked_q == 10) {
+        document.getElementById("nq").innerHTML = "Ergebnisse";
     }
     nc = getRanInt(27);
     if(nc == curr_q) curr_q = getRanInt(27);
@@ -172,5 +196,19 @@ function getRanInt(max) {
 }
 
 function onButtonR() {
-    document.getElementById("overlay").style.display = "none";
+    if(asked_q == 10) {
+        document.getElementById("scoreboard").style.display = "block";
+        document.getElementById("scounter").innerHTML = score.toString();
+        if(score >= 8) {
+            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Super!";
+        } else if(score >= 5) {
+            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Gut!";
+        } else if(score >= 2) {
+            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Ganz passabel!";
+        } else if(score >= 0) {
+            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Nächstes Mal bist du besser!";
+        }
+    } else {
+        document.getElementById("overlay").style.display = "none";
+    }
 }
