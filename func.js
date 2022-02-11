@@ -15,7 +15,7 @@ const questions = [
     "Was ist der wissenschaftliche Name für Hülsenfrüchtler?",
     "Wo werden die meisten Hülsenfrüchte angebaut?",
     "Welche ist die meist von Menschen gegessene Hülsenfrucht in Deutschland?",
-    "Wie viele Menschen essen in Deutschland Hülsenfrüchte durchschnittlich pro Kopf?",
+    "Wie viele Hülsenfrüchte essen Menschen jährlich in Deutschland durchschnittlich pro Kopf?",
     "Welcher Stoff wird in den Wurzeln von Hülsenfrüchtlern gebildet?",
     "Warum heißen Hülsenfrüchte nicht Hülsengemüse?",
     "Zu welcher Zeit werden Hülsenfrüchte in Deutschland geerntet?",
@@ -169,6 +169,7 @@ function onStart() {
 function onButtonQ(index) {
     document.getElementById("overlay").style.display = "block";
     if(index == correct_a[curr_q]) {
+        document.getElementById("rightanswer").innerHTML = "";
         document.getElementById("result").style.color = "green";
         document.getElementById("result").innerHTML = "Richtig!";
         score++;
@@ -176,6 +177,12 @@ function onButtonQ(index) {
     } else {
         document.getElementById("result").style.color = "red";
         document.getElementById("result").innerHTML = "Leider Falsch.";
+        rat = ["Die richtige Antwort ist ", "", "."];
+        if(correct_a[curr_q] == 1) rat[1] = answers1[curr_q];
+        else if(correct_a[curr_q] == 2) rat[1] = answers2[curr_q];
+        else if(correct_a[curr_q] == 3) rat[1] = answers3[curr_q];
+        else if(correct_a[curr_q] == 4) rat[1] = answers4[curr_q];
+        document.getElementById("rightanswer").innerHTML = rat.join("");
         asked_q++;
     }
     if(asked_q == 10) {

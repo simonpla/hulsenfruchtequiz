@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
+  <!--
+            _
+        .__(.)< (MEOW)
+         \___)   
+  ~~~~~~~~~~~~~~~~~~
+  -->
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +19,8 @@
         background-attachment: fixed;
         background-size: cover;
         text-align: center;
+        padding-left: 5%;
+        padding-right: 5%;
       }
 
       h1 {
@@ -119,6 +127,11 @@
         z-index: 2;
         cursor: pointer;
       }
+
+      .textr {
+        font-size: 25pt;
+        color: rgb(66, 61, 61);
+      }
     </style>
   </head>
 
@@ -136,6 +149,7 @@
       <div id="overlay">
         <p class="text" id="result">Berechnet...</p>
         <div class="center">
+          <p class="text textr" id="rightanswer"></p>
         <button class="button buttona" onclick="onButtonR()" id="nq">Nächste Frage</button>
         </div>
     </div>
@@ -152,7 +166,7 @@
       <h1>Du hast</h1>
       <p class="text" style="font-size: 80pt; font-weight: bolder;" id="scounter">1</p>
       <p class="text" style="font-size: 20pt;" id="sjudgement"></p>
-      <button class="button buttona" onclick="onStart()">Restart</button>
+      <button class="button buttona" onclick="onStart()">Neu starten</button>
     </div>
   </body>
 </html>
