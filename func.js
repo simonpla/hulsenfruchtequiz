@@ -38,7 +38,7 @@ const answers1 = [
     "0-10%",
     "0-7%",
     "12%",
-    "34%",
+    "26%",
     "Eiweißgehalt",
     "Proteinreich",
     "Leguminosen",
