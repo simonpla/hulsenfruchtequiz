@@ -144,18 +144,26 @@ const answers4 = [
     "8000"
 ];
 //                                                   | stimmt nicht
-var correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 1, 4, 1, 1, 1, 1];
+const correct_a = [2, 3, 1, 4, 2, 1, 3, 2, 3, 3, 2, 1, 4, 1, 1, 2, 1, 1, 3, 3, 1, 1, 4, 1, 1, 1, 1];
 
 curr_q = 0;
 score = 0;
 asked_q = 0;
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString)
+if(urlParams.has('q')) {
+    num_questions = parseInt(urlParams.get('q'));
+} else {
+    num_questions = 10;
+}
 
 function onStart() {
     document.getElementById("startpage").style.display = "none";
     document.getElementById("scoreboard").style.display = "none";
     document.getElementById("overlay").style.display = "none";
     nc = getRanInt(27);
-    if(nc == curr_q) curr_q = getRanInt(27);
+    if(nc === curr_q) curr_q = getRanInt(27);
     else curr_q = nc;
     document.getElementById("tq").innerHTML = questions[curr_q];
     document.getElementById("ba1").innerHTML = answers1[curr_q];
@@ -168,7 +176,7 @@ function onStart() {
 
 function onButtonQ(index) {
     document.getElementById("overlay").style.display = "block";
-    if(index == correct_a[curr_q]) {
+    if(index === correct_a[curr_q]) {
         document.getElementById("rightanswer").innerHTML = "";
         document.getElementById("result").style.color = "green";
         document.getElementById("result").innerHTML = "Richtig!";
@@ -178,18 +186,18 @@ function onButtonQ(index) {
         document.getElementById("result").style.color = "red";
         document.getElementById("result").innerHTML = "Leider Falsch.";
         rat = ["Die richtige Antwort ist ", "", "."];
-        if(correct_a[curr_q] == 1) rat[1] = answers1[curr_q];
-        else if(correct_a[curr_q] == 2) rat[1] = answers2[curr_q];
-        else if(correct_a[curr_q] == 3) rat[1] = answers3[curr_q];
-        else if(correct_a[curr_q] == 4) rat[1] = answers4[curr_q];
+        if(correct_a[curr_q] === 1) rat[1] = answers1[curr_q];
+        else if(correct_a[curr_q] === 2) rat[1] = answers2[curr_q];
+        else if(correct_a[curr_q] === 3) rat[1] = answers3[curr_q];
+        else if(correct_a[curr_q] === 4) rat[1] = answers4[curr_q];
         document.getElementById("rightanswer").innerHTML = rat.join("");
         asked_q++;
     }
-    if(asked_q == 10) {
+    if(asked_q === num_questions) {
         document.getElementById("nq").innerHTML = "Ergebnisse";
     }
     nc = getRanInt(27);
-    if(nc == curr_q) curr_q = getRanInt(27);
+    if(nc === curr_q) curr_q = getRanInt(27);
     else curr_q = nc;
     document.getElementById("tq").innerHTML = questions[curr_q];
     document.getElementById("ba1").innerHTML = answers1[curr_q];
@@ -203,17 +211,17 @@ function getRanInt(max) {
 }
 
 function onButtonR() {
-    if(asked_q == 10) {
+    if(asked_q === num_questions) {
         document.getElementById("scoreboard").style.display = "block";
         document.getElementById("scounter").innerHTML = score.toString();
-        if(score >= 8) {
-            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Super!";
-        } else if(score >= 5) {
-            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Gut!";
-        } else if(score >= 2) {
-            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Ganz passabel!";
+        if(score >= num_questions - (num_questions/5)) {
+            document.getElementById("sjudgement").innerHTML = `von ${num_questions} Fragen richtig beantwortet. Super!`;
+        } else if(score >= num_questions/2) {
+            document.getElementById("sjudgement").innerHTML = `von ${num_questions} Fragen richtig beantwortet. Gut!`;
+        } else if(score >= num_questions/5) {
+            document.getElementById("sjudgement").innerHTML = `von ${num_questions} Fragen richtig beantwortet. Ganz passabel!`;
         } else if(score >= 0) {
-            document.getElementById("sjudgement").innerHTML = "von 10 Fragen richtig beantwortet. Nächstes Mal bist du besser!";
+            document.getElementById("sjudgement").innerHTML = `von ${num_questions} Fragen richtig beantwortet. Nächstes Mal bist du besser!`;
         }
     } else {
         document.getElementById("overlay").style.display = "none";
